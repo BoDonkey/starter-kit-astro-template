@@ -10,9 +10,15 @@ export default {
       rows: {},
       card: {},
       hero: {},
-      accordion: {}
+      accordion: {},
+      link: {}
     },
-    widgets: false
+    icon: 'view-grid',
+    description: 'Create CSS Grid-based layouts for your content.',
+    previewImage: 'svg'
+  },
+  icons: {
+    'view-grid': 'ViewGrid'
   },
   fields(self, options) {
     const widgets = self.options.widgets || self.options.defaultWidgets;

@@ -4,7 +4,10 @@ import textOptionsHelper from '../../lib/helpers/typography-options.js';
 export default {
   extend: '@apostrophecms/widget-type',
   options: {
-    label: 'Card'
+    label: 'Card',
+    icon: 'sign-text-icon',
+    previewImage: 'svg',
+    description: 'Cards from simple to complex.'
   },
   fields: {
     add: {

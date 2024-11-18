@@ -3,7 +3,10 @@ import colorOptionsHelper from '../../lib/helpers/color-options.js';
 export default {
   extend: '@apostrophecms/widget-type',
   options: {
-    label: 'Link'
+    label: 'Link',
+    icon: 'link-icon',
+    previewImage: 'svg',
+    description: 'Add a button that links to a page or URL'
   },
   fields: {
     add: {

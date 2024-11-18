@@ -37,8 +37,7 @@ export default {
               ]
             },
             '@apostrophecms/image': {},
-            '@apostrophecms/video': {},
-            'two-column': {}
+            '@apostrophecms/video': {}
           }
         }
       }
