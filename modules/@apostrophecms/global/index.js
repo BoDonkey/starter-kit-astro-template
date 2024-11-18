@@ -30,15 +30,6 @@ export default {
               ],
               def: 'default'
             },
-            mode: {
-              type: 'select',
-              label: 'Brightness Mode',
-              choices: [
-                { label: 'Light', value: 'light' },
-                { label: 'Dark', value: 'dark' }
-              ],
-              def: 'light'
-            },
             customCss: {
               type: 'string',
               label: 'Custom CSS',
@@ -173,6 +164,11 @@ export default {
                   { headerPosition: 'static' }
                 ]
               }
+            },
+            showThemeSwitcher: {
+              type: 'boolean',
+              label: 'Show Theme Switcher in Navbar',
+              def: false
             },
             spacing: {
               type: 'select',

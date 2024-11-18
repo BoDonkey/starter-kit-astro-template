@@ -39,7 +39,6 @@ export default apostrophe({
     'hero-widget': {},
     'link-widget': {},
     'slideshow-widget': {},
-    'column-widget': {},
     'rows-widget': {}
   }
 });

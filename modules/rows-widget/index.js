@@ -1,8 +1,12 @@
+import { allWidgets } from "../../lib/helpers/area-widgets.js";
+
 export default {
   extend: '@apostrophecms/widget-type',
   options: {
     label: 'Rows Layout',
-    icon: 'view-column-icon'
+    icon: 'view-column-icon',
+    description: 'Create row and column-based layouts for your content.',
+    previewImage: 'svg'
   },
   fields: {
     add: {
@@ -76,13 +80,7 @@ export default {
         type: 'area',
         label: 'First Column',
         options: {
-          widgets: {
-            '@apostrophecms/rich-text': {},
-            '@apostrophecms/image': {},
-            '@apostrophecms/video': {},
-            card: {},
-            link: {}
-          }
+          widgets: allWidgets
         },
         if: {
           $or: [
@@ -99,13 +97,7 @@ export default {
         type: 'area',
         label: 'Second Column',
         options: {
-          widgets: {
-            '@apostrophecms/rich-text': {},
-            '@apostrophecms/image': {},
-            '@apostrophecms/video': {},
-            card: {},
-            link: {}
-          }
+          widgets: allWidgets
         },
         if: {
           $or: [
@@ -122,13 +114,7 @@ export default {
         type: 'area',
         label: 'Third Column',
         options: {
-          widgets: {
-            '@apostrophecms/rich-text': {},
-            '@apostrophecms/image': {},
-            '@apostrophecms/video': {},
-            card: {},
-            link: {}
-          }
+          widgets: allWidgets
         },
         if: {
           $or: [
@@ -142,13 +128,7 @@ export default {
         type: 'area',
         label: 'Fourth Column',
         options: {
-          widgets: {
-            '@apostrophecms/rich-text': {},
-            '@apostrophecms/image': {},
-            '@apostrophecms/video': {},
-            card: {},
-            link: {}
-          }
+          widgets: allWidgets
         },
         if: {
           columnLayout: 'four-equal'
