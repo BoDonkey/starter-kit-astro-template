@@ -1,9 +1,16 @@
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
+import { readFileSync } from 'node:fs';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 export default {
   extend: '@apostrophecms/widget-type',
   options: {
     label: 'Grid Layout Widget',
     width: 'half',
-    defaultWidgets: {
+    areaWidgets: {
       '@apostrophecms/rich-text': {},
       '@apostrophecms/image': {},
       '@apostrophecms/video': {},
@@ -14,20 +21,24 @@ export default {
       link: {}
     },
     icon: 'view-grid',
-    description: 'Create CSS Grid-based layouts for your content.',
+    description: 'Create responsive CSS Grid-based layouts for your content.',
     previewImage: 'svg'
   },
   icons: {
     'view-grid': 'ViewGrid'
   },
   fields(self, options) {
-    const widgets = self.options.widgets || self.options.defaultWidgets;
+    const widgets = self.options.areaWidgets;
+    const previewHtml = readFileSync(
+      join(__dirname, 'layoutPreviews.html'),
+      'utf8'
+    );
     return {
       add: {
         layoutType: {
           type: 'select',
           label: 'Layout Type',
-          help: 'Select one of the preset layouts or choose "Custom" to create your own grid layout.',
+          htmlHelp: previewHtml,
           required: true,
           choices: [
             {
@@ -55,6 +66,26 @@ export default {
               value: 'featuredThreeGrid'
             },
             {
+              label: 'Magazine Layout',
+              value: 'magazineLayout'
+            },
+            {
+              label: 'Content Hub',
+              value: 'contentHub'
+            },
+            {
+              label: 'Gallery Masonry',
+              value: 'galleryMasonry'
+            },
+            {
+              label: 'Dashboard Layout',
+              value: 'dashboardLayout'
+            },
+            {
+              label: 'Product Showcase',
+              value: 'productShowcase'
+            },
+            {
               label: 'Custom Grid',
               value: 'custom'
             }
@@ -71,6 +102,105 @@ export default {
             { label: 'Wide (1344px)', value: 'max-width-1344' }
           ],
           def: ''
+        },
+        areaStyles: {
+          type: 'object',
+          label: 'Area Styling',
+          if: {
+            $or: [
+              { layoutType: 'asideMainThree' },
+              { layoutType: 'mainAsideThree' },
+              { layoutType: 'asideTwoMain' },
+              { layoutType: 'twoMainAside' },
+              { layoutType: 'headerTwoColFooter' },
+              { layoutType: 'featuredThreeGrid' },
+              { layoutType: 'magazineLayout' },
+              { layoutType: 'contentHub' },
+              { layoutType: 'galleryMasonry' },
+              { layoutType: 'dashboardLayout' },
+              { layoutType: 'productShowcase' }
+            ]
+          },
+          fields: {
+            add: {
+              minHeight: {
+                type: 'string',
+                label: 'Minimum Height',
+                help: 'E.g., 200px, 50vh'
+              },
+              verticalAlign: {
+                type: 'select',
+                label: 'Vertical Alignment',
+                choices: [
+                  { label: 'Top', value: 'start' },
+                  { label: 'Center', value: 'center' },
+                  { label: 'Bottom', value: 'end' },
+                  { label: 'Stretch', value: 'stretch' }
+                ],
+                def: 'start'
+              },
+              gapOverride: {
+                type: 'string',
+                label: 'Custom Gap',
+                help: 'Override default gap spacing'
+              }
+            }
+          }
+        },
+        responsiveSettings: {
+          type: 'object',
+          label: 'Responsive Settings',
+          fields: {
+            add: {
+              tabletBreakpoint: {
+                type: 'select',
+                label: 'Tablet Layout Starts At',
+                choices: [
+                  { label: '1024px', value: '1024' },
+                  { label: '960px', value: '960' },
+                  { label: '868px', value: '868' }
+                ],
+                def: '1024'
+              },
+              mobileBreakpoint: {
+                type: 'select',
+                label: 'Mobile Layout Starts At',
+                choices: [
+                  { label: '768px', value: '768' },
+                  { label: '640px', value: '640' },
+                  { label: '480px', value: '480' }
+                ],
+                def: '768'
+              },
+              tabletLayout: {
+                type: 'select',
+                label: 'Tablet Layout Behavior',
+                choices: [
+                  { label: 'Maintain Grid (Reduced Columns)', value: 'grid' },
+                  { label: 'Stack All Items', value: 'stack' }
+                ],
+                def: 'grid'
+              },
+              spacing: {
+                type: 'object',
+                label: 'Responsive Spacing',
+                fields: {
+                  add: {
+                    tabletGap: {
+                      type: 'string',
+                      label: 'Grid Gap (Tablet)',
+                      def: '0.75rem'
+                    },
+                    mobileGap: {
+                      type: 'string',
+                      label: 'Grid Gap (Mobile)',
+                      def: '0.5rem'
+                    }
+                  }
+                }
+              }
+            }
+          }
         },
         asideContent: {
           type: 'area',
@@ -191,7 +321,198 @@ export default {
             ]
           }
         },
-        // Custom grid settings
+        headlineContent: {
+          type: 'area',
+          label: 'Headline Content',
+          options: { widgets },
+          if: {
+            layoutType: 'magazineLayout'
+          }
+        },
+        sidebarContent: {
+          type: 'area',
+          label: 'Sidebar Content',
+          options: { widgets },
+          if: {
+            layoutType: 'magazineLayout'
+          }
+        },
+        feature1Content: {
+          type: 'area',
+          label: 'Feature 1',
+          options: { widgets },
+          if: {
+            layoutType: 'magazineLayout'
+          }
+        },
+        feature2Content: {
+          type: 'area',
+          label: 'Feature 2',
+          options: { widgets },
+          if: {
+            layoutType: 'magazineLayout'
+          }
+        },
+        feature3Content: {
+          type: 'area',
+          label: 'Feature 3',
+          options: { widgets },
+          if: {
+            layoutType: 'magazineLayout'
+          }
+        },
+        heroContent: {
+          type: 'area',
+          label: 'Hero Content',
+          options: { widgets },
+          if: {
+            layoutType: 'contentHub'
+          }
+        },
+        featuredHubContent: {
+          type: 'area',
+          label: 'Featured Content',
+          options: { widgets },
+          if: {
+            layoutType: 'contentHub'
+          }
+        },
+        quickLinksContent: {
+          type: 'area',
+          label: 'Quick Links',
+          options: { widgets },
+          if: {
+            layoutType: 'contentHub'
+          }
+        },
+        section1Content: {
+          type: 'area',
+          label: 'Section 1',
+          options: { widgets },
+          if: {
+            layoutType: 'contentHub'
+          }
+        },
+        section2Content: {
+          type: 'area',
+          label: 'Section 2',
+          options: { widgets },
+          if: {
+            layoutType: 'contentHub'
+          }
+        },
+        fullWidthContent: {
+          type: 'area',
+          label: 'Full Width Content',
+          options: { widgets },
+          if: {
+            layoutType: 'contentHub'
+          }
+        },
+        galleryFeaturedContent: {
+          type: 'area',
+          label: 'Featured Gallery Item',
+          options: { widgets },
+          if: {
+            layoutType: 'galleryMasonry'
+          }
+        },
+        gallerySide1Content: {
+          type: 'area',
+          label: 'Side Gallery Item 1',
+          options: { widgets },
+          if: {
+            layoutType: 'galleryMasonry'
+          }
+        },
+        gallerySide2Content: {
+          type: 'area',
+          label: 'Side Gallery Item 2',
+          options: { widgets },
+          if: {
+            layoutType: 'galleryMasonry'
+          }
+        },
+        galleryBottomContent: {
+          type: 'area',
+          label: 'Bottom Gallery Item',
+          options: { widgets },
+          if: {
+            layoutType: 'galleryMasonry'
+          }
+        },
+        mainMetricContent: {
+          type: 'area',
+          label: 'Main Metric',
+          options: { widgets },
+          if: {
+            layoutType: 'dashboardLayout'
+          }
+        },
+        sideMetricsContent: {
+          type: 'area',
+          label: 'Side Metrics',
+          options: { widgets },
+          if: {
+            layoutType: 'dashboardLayout'
+          }
+        },
+        chartContent: {
+          type: 'area',
+          label: 'Chart',
+          options: { widgets },
+          if: {
+            layoutType: 'dashboardLayout'
+          }
+        },
+        tableContent: {
+          type: 'area',
+          label: 'Table',
+          options: { widgets },
+          if: {
+            layoutType: 'dashboardLayout'
+          }
+        },
+        mainProductContent: {
+          type: 'area',
+          label: 'Main Product',
+          options: { widgets },
+          if: {
+            layoutType: 'productShowcase'
+          }
+        },
+        productDetailsContent: {
+          type: 'area',
+          label: 'Product Details',
+          options: { widgets },
+          if: {
+            layoutType: 'productShowcase'
+          }
+        },
+        related1Content: {
+          type: 'area',
+          label: 'Related Product 1',
+          options: { widgets },
+          if: {
+            layoutType: 'productShowcase'
+          }
+        },
+        related2Content: {
+          type: 'area',
+          label: 'Related Product 2',
+          options: { widgets },
+          if: {
+            layoutType: 'productShowcase'
+          }
+        },
+        related3Content: {
+          type: 'area',
+          label: 'Related Product 3',
+          options: { widgets },
+          if: {
+            layoutType: 'productShowcase'
+          }
+        },
         customGrid: {
           type: 'object',
           label: 'Custom Grid Settings',
@@ -256,6 +577,28 @@ export default {
                       label: 'Column Span',
                       def: 1
                     },
+                    // New responsive column spans
+                    tabletColSpan: {
+                      type: 'integer',
+                      label: 'Column Span (Tablet)',
+                      help: 'Number of columns this area should span on tablet devices',
+                      def: null
+                    },
+                    minHeight: {
+                      type: 'string',
+                      label: 'Minimum Height'
+                    },
+                    verticalAlign: {
+                      type: 'select',
+                      label: 'Vertical Alignment',
+                      choices: [
+                        { label: 'Top', value: 'start' },
+                        { label: 'Center', value: 'center' },
+                        { label: 'Bottom', value: 'end' },
+                        { label: 'Stretch', value: 'stretch' }
+                      ],
+                      def: 'start'
+                    },
                     content: {
                       type: 'area',
                       label: 'Content',
@@ -269,7 +612,7 @@ export default {
             }
           }
         },
-        // Global options
+        // Global options remain the same
         addOverride: {
           type: 'boolean',
           label: 'Add CSS target override?',
