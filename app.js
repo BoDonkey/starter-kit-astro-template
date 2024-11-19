@@ -3,7 +3,6 @@ import apostrophe from 'apostrophe';
 export default apostrophe({
   root: import.meta,
   shortName: 'apos-material',
-  bundles: [ '@apostrophecms/blog' ],
   modules: {
     // Apostrophe module configuration
     // *******************************
@@ -31,8 +30,9 @@ export default apostrophe({
     // },
     // The project's first custom page type.
     'default-page': {},
-    '@apostrophecms/blog': {},
-    '@apostrophecms/blog-page': {},
+    article: {},
+    'article-page': {},
+    author: {},
     'grid-layout-widget': {},
     'accordion-widget': {},
     'card-widget': {},
