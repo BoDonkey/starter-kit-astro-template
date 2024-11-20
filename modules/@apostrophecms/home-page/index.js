@@ -106,6 +106,7 @@ export default {
             mainColor: {
               type: 'select',
               label: 'Main Background Color',
+              required: true,
               choices: colorOptionsHelper.getColorOptions().filter(color =>
                 color.value !== 'transparent'
               ),
@@ -176,6 +177,7 @@ export default {
               label: 'Background Video',
               help: 'Upload an MP4 (recommended) or WebM file. For best performance, keep file size under 10MB. Animated GIFs are also supported but not recommended due to file size. Recommended dimensions: 1920x1080.',
               fileGroup: 'videos',
+              required: true,
               max: 1,
               if: {
                 background: 'video'
@@ -186,6 +188,7 @@ export default {
               label: 'Mobile Background Video (Optional)',
               help: 'If provided, this image will be used on mobile devices instead of the main background video',
               fileGroup: 'images',
+              required: true,
               max: 1,
               if: {
                 background: 'video'
