@@ -37,6 +37,7 @@ export default {
       socialLinks: {
         type: 'array',
         label: 'Social Media Links',
+        titleField: 'platform',
         fields: {
           add: {
             platform: {

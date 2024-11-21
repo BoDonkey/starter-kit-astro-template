@@ -36,7 +36,7 @@ export default {
         type: 'area',
         label: 'Sidebar Content',
         if: {
-          indexLayout: 'sidebar'
+          indexLayout: 'listAside'
         },
         options: {
           widgets: {
@@ -94,14 +94,14 @@ export default {
             help: 'Hero image and content spanning full width'
           },
           {
-            label: 'With Sidebar',
-            value: 'sidebar',
-            help: 'Content with related articles sidebar'
-          },
-          {
             label: 'Magazine Style',
             value: 'magazine',
             help: 'Enhanced typography with pull quotes and featured sections'
+          },
+          {
+            label: 'Minimal',
+            value: 'minimal',
+            help: 'Simple, clean layout with focus on content'
           }
         ]
       }

@@ -13,11 +13,11 @@ export default {
               type: 'select',
               label: 'Site Layout',
               choices: [
-                { label: 'Foundation', value: 'classic' },
-                { label: 'Spotlight', value: 'modern' },
+                { label: 'Classic', value: 'classic' },
+                { label: 'Modern', value: 'modern' },
                 { label: 'Minimal', value: 'minimal' }
               ],
-              def: 'classic' // Default layout selection
+              def: 'classic'
             },
             theme: {
               type: 'select',
@@ -46,7 +46,8 @@ export default {
             siteTitle: {
               type: 'string',
               label: 'Site Title',
-              required: true
+              required: true,
+              def: 'Apos & Astro'
             },
             brandingType: {
               type: 'select',
@@ -148,7 +149,8 @@ export default {
               choices: [
                 { label: 'Start', value: 'start' },
                 { label: 'End', value: 'end' }
-              ]
+              ],
+              def: 'end'
             },
             transparency: {
               type: 'range',
@@ -186,7 +188,8 @@ export default {
               type: 'select',
               label: 'Header Background Color',
               help: 'Choose the background color for the navigation bar',
-              choices: colorOptionsHelper.getColorOptions()
+              choices: colorOptionsHelper.getColorOptions(),
+              def: 'white'
             },
             headerBackgroundModifier: {
               type: 'select',
@@ -200,7 +203,8 @@ export default {
               help: 'Choose the color for navigation text',
               choices: colorOptionsHelper.getColorOptions().filter(color =>
                 color.value !== 'transparent'
-              )
+              ),
+              def: 'black'
             },
             headerActiveColor: {
               type: 'select',
@@ -258,14 +262,15 @@ export default {
               type: 'boolean',
               label: 'Show Branding in Footer',
               help: 'Uses the same branding configuration as header',
-              def: false
+              def: true
             },
             // Appearance settings
             footerBackgroundColor: {
               type: 'select',
               label: 'Background Color',
               help: 'Choose the background color for the footer',
-              choices: colorOptionsHelper.getColorOptions()
+              choices: colorOptionsHelper.getColorOptions(),
+              def: 'white'
             },
             footerTextColor: {
               type: 'select',
@@ -273,7 +278,8 @@ export default {
               help: 'Choose the color for footer text',
               choices: colorOptionsHelper.getColorOptions().filter(color =>
                 color.value !== 'transparent'
-              )
+              ),
+              def: 'black'
             },
             footerLinkColor: {
               type: 'select',
@@ -295,6 +301,7 @@ export default {
             socialLinks: {
               type: 'array',
               label: 'Social Media Links',
+              titleField: 'platform',
               fields: {
                 add: {
                   platform: {
@@ -363,6 +370,7 @@ export default {
             footerSections: {
               type: 'array',
               label: 'Footer Sections',
+              titleField: 'sectionTitle',
               fields: {
                 add: {
                   sectionTitle: {
@@ -373,6 +381,7 @@ export default {
                   links: {
                     type: 'array',
                     label: 'Links',
+                    titleField: 'linkText',
                     fields: {
                       add: {
                         linkText: {
@@ -411,6 +420,7 @@ export default {
             additionalFooterText: {
               type: 'array',
               label: 'Additional Footer Text',
+              titleField: 'text',
               fields: {
                 add: {
                   text: {

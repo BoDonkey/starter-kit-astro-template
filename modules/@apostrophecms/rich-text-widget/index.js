@@ -2,7 +2,7 @@ export default {
   options: {
     label: 'Rich Text',
     description: 'Add styled text to your page',
-    previewImage: 'png',
+    previewImage: 'svg',
     className: 'o-widget',
     imageStyles: [
       {
