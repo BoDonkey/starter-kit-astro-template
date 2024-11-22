@@ -172,6 +172,16 @@ export default {
               label: 'Show Theme Switcher in Navbar',
               def: false
             },
+            switcherIconColor: {
+              type: 'select',
+              label: 'Switcher Icon Color',
+              choices: colorOptionsHelper.getColorOptions().filter(color =>
+                color.value !== 'transparent'
+              ),
+              if: {
+                showThemeSwitcher: true
+              }
+            },
             spacing: {
               type: 'select',
               label: 'Header Spacing',

@@ -75,7 +75,17 @@ export default {
           { label: 'Bottom', value: 'bottom' }
         ]
       },
-      // The relevant parts of the schema with fixed conditionals
+      horizontalAlignment: {
+        type: 'select',
+        label: 'Horizontal Alignment',
+        choices: [
+          { label: 'Left', value: 'left' },
+          { label: 'Center', value: 'center' },
+          { label: 'Right', value: 'right' },
+          { label: 'Space Between', value: 'space-between' }
+        ],
+        def: 'left'
+      },
       columnOneContent: {
         type: 'area',
         label: 'First Column',

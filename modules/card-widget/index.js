@@ -130,7 +130,8 @@ export default {
         label: 'Card Content',
         options: {
           widgets: {
-            '@apostrophecms/rich-text': {}
+            '@apostrophecms/rich-text': {},
+            link: {}
           }
         }
       },
