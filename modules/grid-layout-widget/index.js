@@ -612,7 +612,6 @@ export default {
             }
           }
         },
-        // Global options remain the same
         addOverride: {
           type: 'boolean',
           label: 'Add CSS target override?',

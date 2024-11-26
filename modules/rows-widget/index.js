@@ -1,4 +1,4 @@
-import { allWidgets } from "../../lib/helpers/area-widgets.js";
+import { getFilteredWidgets } from '../../lib/helpers/area-widgets.js';
 
 export default {
   extend: '@apostrophecms/widget-type',
@@ -90,7 +90,10 @@ export default {
         type: 'area',
         label: 'First Column',
         options: {
-          widgets: allWidgets
+          widgets: getFilteredWidgets({
+            includeLayouts: true,
+            exclude: ['grid-layout']
+          })
         },
         if: {
           $or: [
@@ -107,7 +110,10 @@ export default {
         type: 'area',
         label: 'Second Column',
         options: {
-          widgets: allWidgets
+          widgets: getFilteredWidgets({
+            includeLayouts: true,
+            exclude: ['grid-layout']
+          })
         },
         if: {
           $or: [
@@ -124,7 +130,10 @@ export default {
         type: 'area',
         label: 'Third Column',
         options: {
-          widgets: allWidgets
+          widgets: getFilteredWidgets({
+            includeLayouts: true,
+            exclude: ['grid-layout']
+          })
         },
         if: {
           $or: [
@@ -138,7 +147,10 @@ export default {
         type: 'area',
         label: 'Fourth Column',
         options: {
-          widgets: allWidgets
+          widgets: getFilteredWidgets({
+            includeLayouts: true,
+            exclude: ['grid-layout']
+          })
         },
         if: {
           columnLayout: 'four-equal'
