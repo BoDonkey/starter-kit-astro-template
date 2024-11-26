@@ -1,8 +1,8 @@
 import colorOptionsHelper from '../../../lib/helpers/color-options.js';
 
-
 import { getFilteredWidgets } from '../../../lib/helpers/area-widgets.js';
 import heroFields from '../../../lib/schema-mixins/hero-fields.js';
+import slideshowFields from '../../../lib/schema-mixins/slideshow-fields.js';
 
 export default {
   options: {
@@ -36,18 +36,6 @@ export default {
       heroSection: {
         type: 'object',
         label: 'Hero Section',
-        def: {
-          layout: 'split',
-          splitSide: 'right',
-          background: 'image',
-          height: 'large',
-          contentAlignment: 'left',
-          mainContent: {
-            title: 'Welcome to Our Site',
-            subtitle: 'Start customizing your homepage',
-            titleColor: 'primary'
-          }
-        },
         fields: {
           add: heroFields
         },
@@ -57,13 +45,10 @@ export default {
       },
       // Showcase Layout Sections
       showcaseSlideshow: {
-        type: 'area',
+        type: 'object',
         label: 'Showcase Slideshow',
-        options: {
-          max: 1,
-          widgets: {
-            slideshow: {}
-          }
+        fields: {
+          add: slideshowFields
         },
         if: {
           layout: 'showcase'
@@ -143,26 +128,19 @@ export default {
                           textarea: true,
                           label: 'Card Description'
                         },
-                        addIconImage: {
+                        addCardImage: {
                           type: 'boolean',
-                          label: 'Add icon image?',
+                          label: 'Add card image?',
                           def: true
                         },
-                        _icon: {
+                        _image: {
                           type: 'relationship',
-                          Label: 'Icon image',
+                          Label: 'Card image',
                           withType: '@apostrophecms/image',
                           max: 1,
                           if: {
-                            addIconImage: true
+                            addCardImage: true
                           }
-                        },
-                        iconColor: {
-                          type: 'select',
-                          label: 'Icon Color',
-                          choices: colorOptionsHelper.getColorOptions().filter(color =>
-                            color.value !== 'transparent'
-                          )
                         }
                       }
                     }
@@ -289,7 +267,7 @@ export default {
                           options: {
                             widgets: {
                               '@apostrophecms/rich-text': {
-                                toolbar: ['styles', 'bold', 'italic', 'link', 'bulletList', 'numberedList']
+                                toolbar: ['styles', 'bold', 'italic', 'link', 'bulletList', 'orderedList']
                               }
                             }
                           },
