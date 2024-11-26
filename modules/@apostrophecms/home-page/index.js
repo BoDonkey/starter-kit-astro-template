@@ -15,12 +15,12 @@ export default {
         label: 'Layout',
         choices: [
           {
-            label: 'Foundation',
+            label: 'Foundation - with Hero',
             value: 'foundation',
             help: 'Traditional layout with hero section at the top'
           },
           {
-            label: 'Showcase',
+            label: 'Showcase - with Slideshow',
             value: 'showcase',
             help: 'Features a prominent slideshow at the top'
           },
