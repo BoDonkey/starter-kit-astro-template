@@ -9,16 +9,6 @@ export default {
         label: 'Theme Settings',
         fields: {
           add: {
-            layout: {
-              type: 'select',
-              label: 'Site Layout',
-              choices: [
-                { label: 'Classic', value: 'classic' },
-                { label: 'Modern', value: 'modern' },
-                { label: 'Minimal', value: 'minimal' }
-              ],
-              def: 'classic'
-            },
             theme: {
               type: 'select',
               label: 'Site Theme',

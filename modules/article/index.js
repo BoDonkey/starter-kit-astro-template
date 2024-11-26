@@ -1,3 +1,5 @@
+import { getFilteredWidgets } from '../../lib/helpers/area-widgets.js';
+
 export default {
   extend: '@apostrophecms/piece-type',
   options: {
@@ -21,14 +23,9 @@ export default {
       mainContent: {
         type: 'area',
         options: {
-          widgets: {
-            '@apostrophecms/rich-text': {},
-            '@apostrophecms/image': {},
-            '@apostrophecms/video': {},
-            rows: {},
-            'grid-layout': {},
-            link: {}
-          }
+          widgets: getFilteredWidgets({
+            includeLayouts: true
+          })
         }
       },
       _author: {

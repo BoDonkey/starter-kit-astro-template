@@ -1,3 +1,5 @@
+import { getFilteredWidgets } from '../../lib/helpers/area-widgets.js';
+
 export default {
   extend: '@apostrophecms/piece-page-type',
   options: {
@@ -9,27 +11,18 @@ export default {
       masthead: {
         type: 'area',
         options: {
-          widgets: {
-            '@apostrophecms/rich-text': {},
-            '@apostrophecms/image': {},
-            rows: {},
-            hero: {},
-            slideshow: {}
-          }
+          widgets: getFilteredWidgets({
+            includeLayouts: true
+          })
         }
       },
       beforeContent: {
         type: 'area',
         label: 'Before Articles Section',
         options: {
-          widgets: {
-            '@apostrophecms/rich-text': {},
-            '@apostrophecms/image': {},
-            '@apostrophecms/video': {},
-            rows: {},
-            hero: {},
-            slideshow: {}
-          }
+          widgets: getFilteredWidgets({
+            includeLayouts: true
+          })
         }
       },
       sidebarContent: {
@@ -39,26 +32,18 @@ export default {
           indexLayout: 'listAside'
         },
         options: {
-          widgets: {
-            '@apostrophecms/rich-text': {},
-            '@apostrophecms/image': {},
-            rows: {},
-            hero: {},
-            slideshow: {}
-          }
+          widgets: getFilteredWidgets({
+            includeLayouts: true
+          })
         }
       },
       afterContent: {
         type: 'area',
         label: 'After Articles Section',
         options: {
-          widgets: {
-            '@apostrophecms/rich-text': {},
-            '@apostrophecms/image': {},
-            rows: {},
-            hero: {},
-            slideshow: {}
-          }
+          widgets: getFilteredWidgets({
+            includeLayouts: true
+          })
         }
       },
       indexLayout: {

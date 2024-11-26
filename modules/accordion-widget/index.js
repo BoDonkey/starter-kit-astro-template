@@ -1,4 +1,5 @@
 import colorOptionsHelper from '../../lib/helpers/color-options.js';
+import { getFilteredWidgets } from '../../lib/helpers/area-widgets.js';
 
 export default {
   extend: '@apostrophecms/widget-type',
@@ -59,10 +60,9 @@ export default {
               type: 'area',
               label: 'Content',
               options: {
-                widgets: {
-                  '@apostrophecms/rich-text': {},
-                  link: {}
-                }
+                widgets: getFilteredWidgets({
+                  exclude: ['accordion']
+                })
               }
             }
           }
