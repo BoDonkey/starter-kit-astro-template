@@ -160,7 +160,7 @@ export default {
             showThemeSwitcher: {
               type: 'boolean',
               label: 'Show Theme Switcher in Navbar',
-              def: false
+              def: true
             },
             switcherIconColor: {
               type: 'select',

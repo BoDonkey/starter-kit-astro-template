@@ -3,6 +3,7 @@ import colorOptionsHelper from '../../../lib/helpers/color-options.js';
 import { getFilteredWidgets } from '../../../lib/helpers/area-widgets.js';
 import heroFields from '../../../lib/schema-mixins/hero-fields.js';
 import slideshowFields from '../../../lib/schema-mixins/slideshow-fields.js';
+import linkFields from '../../../lib/schema-mixins/link-fields.js';
 
 export default {
   options: {
@@ -103,16 +104,12 @@ export default {
                   topBackgroundColor: {
                     type: 'select',
                     label: 'Top Section Background',
-                    choices: colorOptionsHelper.getColorOptions().filter(color =>
-                      color.value !== 'transparent'
-                    )
+                    choices: colorOptionsHelper.getColorOptions()
                   },
                   bottomBackgroundColor: {
                     type: 'select',
                     label: 'Bottom Section Background',
-                    choices: colorOptionsHelper.getColorOptions().filter(color =>
-                      color.value !== 'transparent'
-                    )
+                    choices: colorOptionsHelper.getColorOptions()
                   },
                   features: {
                     type: 'array',
@@ -172,9 +169,17 @@ export default {
                   backgroundColor: {
                     type: 'select',
                     label: 'Background Color',
-                    choices: colorOptionsHelper.getColorOptions().filter(color =>
-                      color.value !== 'transparent'
-                    )
+                    choices: colorOptionsHelper.getColorOptions()
+                  },
+                  bgStyle: {
+                    type: 'select',
+                    label: 'Background overlay style',
+                    choices: [
+                      { label: 'Auto', value: 'auto' },
+                      { label: 'Dark', value: 'dark' },
+                      { label: 'Light', value: 'light' }
+                    ],
+                    def: 'auto'
                   },
                   testimonials: {
                     type: 'array',
@@ -227,16 +232,46 @@ export default {
                     type: 'string',
                     label: 'Section Title'
                   },
+                  titleColor: {
+                    type: 'select',
+                    label: 'Title color',
+                    choices: colorOptionsHelper.getColorOptions()
+                  },
                   contentSubtitle: {
                     type: 'string',
                     label: 'Section Subtitle'
                   },
+                  subtitleColor: {
+                    type: 'select',
+                    label: 'Subtitle color',
+                    choices: colorOptionsHelper.getColorOptions()
+                  },
+                  sectionMargin: {
+                    type: 'select',
+                    label: 'Section width',
+                    options: [
+                      { value: 'none', label: 'Full width' },
+                      { value: 'narrow', label: 'Narrow' },
+                      { value: 'normal', label: 'Standard' },
+                      { value: 'wide', label: 'Wide margins' }
+                    ],
+                    defaultValue: 'normal'
+                  },
+                  contentBlockSpacing: {
+                    type: 'select',
+                    label: 'Content Block spacing',
+                    options: [
+                      { value: 'compact', label: 'Compact' },
+                      { value: 'normal', label: 'Normal' },
+                      { value: 'wide', label: 'Relaxed' }
+                    ],
+                    defaultValue: 'normal'
+                  },
                   backgroundColor: {
                     type: 'select',
                     label: 'Background Color',
-                    choices: colorOptionsHelper.getColorOptions().filter(color =>
-                      color.value !== 'transparent'
-                    )
+                    choices: colorOptionsHelper.getColorOptions(),
+                    def: 'transparent'
                   },
                   gridItems: {
                     type: 'array',
@@ -266,28 +301,12 @@ export default {
                           type: 'area',
                           options: {
                             widgets: {
-                              '@apostrophecms/rich-text': {
-                                toolbar: ['styles', 'bold', 'italic', 'link', 'bulletList', 'orderedList']
-                              }
+                              '@apostrophecms/rich-text': {}
                             }
                           },
                           label: 'Content Text'
                         },
-                        ctaText: {
-                          type: 'string',
-                          label: 'Button Text'
-                        },
-                        ctaUrl: {
-                          type: 'url',
-                          label: 'Button URL'
-                        },
-                        ctaColor: {
-                          type: 'select',
-                          label: 'Button Color',
-                          choices: colorOptionsHelper.getColorOptions().filter(color =>
-                            color.value !== 'transparent'
-                          )
-                        }
+                        ...linkFields
                       }
                     }
                   }
