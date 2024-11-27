@@ -300,6 +300,7 @@ export default {
                         content: {
                           type: 'area',
                           options: {
+                            expanded: true,
                             widgets: {
                               '@apostrophecms/rich-text': {}
                             }
@@ -320,6 +321,7 @@ export default {
               type: 'area',
               label: 'Custom Content Area',
               options: {
+                expanded: true,
                 widgets: getFilteredWidgets({
                   includeLayouts: true
                 })
@@ -329,6 +331,9 @@ export default {
               }
             }
           }
+        },
+        if: {
+          addPageSections: true
         }
       },
       // Main Content Area - Available for all layouts
@@ -336,6 +341,7 @@ export default {
         type: 'area',
         label: 'Main Content',
         options: {
+          expanded: true,
           widgets: getFilteredWidgets({
             includeLayouts: true
           })

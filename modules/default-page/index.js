@@ -10,6 +10,7 @@ export default {
       main: {
         type: 'area',
         options: {
+          expanded: true,
           widgets: getFilteredWidgets({
             includeLayouts: true
           })

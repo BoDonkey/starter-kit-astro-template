@@ -11,6 +11,7 @@ export default {
       masthead: {
         type: 'area',
         options: {
+          expanded: true,
           widgets: getFilteredWidgets({
             includeLayouts: true
           })
@@ -20,6 +21,7 @@ export default {
         type: 'area',
         label: 'Before Articles Section',
         options: {
+          expanded: true,
           widgets: getFilteredWidgets({
             includeLayouts: true
           })
@@ -32,6 +34,7 @@ export default {
           indexLayout: 'listAside'
         },
         options: {
+          expanded: true,
           widgets: getFilteredWidgets({
             includeLayouts: true
           })
@@ -41,6 +44,7 @@ export default {
         type: 'area',
         label: 'After Articles Section',
         options: {
+          expanded: true,
           widgets: getFilteredWidgets({
             includeLayouts: true
           })

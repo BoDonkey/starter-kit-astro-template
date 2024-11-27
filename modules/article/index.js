@@ -23,6 +23,7 @@ export default {
       mainContent: {
         type: 'area',
         options: {
+          expanded: true,
           widgets: getFilteredWidgets({
             includeLayouts: true
           })

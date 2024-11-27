@@ -90,6 +90,7 @@ export default {
         type: 'area',
         label: 'First Column',
         options: {
+          expanded: true,
           widgets: getFilteredWidgets({
             includeLayouts: true,
             exclude: ['grid-layout']
@@ -110,6 +111,7 @@ export default {
         type: 'area',
         label: 'Second Column',
         options: {
+          expanded: true,
           widgets: getFilteredWidgets({
             includeLayouts: true,
             exclude: ['grid-layout']
@@ -130,6 +132,7 @@ export default {
         type: 'area',
         label: 'Third Column',
         options: {
+          expanded: true,
           widgets: getFilteredWidgets({
             includeLayouts: true,
             exclude: ['grid-layout']
@@ -147,6 +150,7 @@ export default {
         type: 'area',
         label: 'Fourth Column',
         options: {
+          expanded: true,
           widgets: getFilteredWidgets({
             includeLayouts: true,
             exclude: ['grid-layout']
