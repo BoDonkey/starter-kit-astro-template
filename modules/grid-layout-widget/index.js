@@ -205,7 +205,10 @@ export default {
         asideContent: {
           type: 'area',
           label: 'Aside Content',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             $or: [
               { layoutType: 'asideMainThree' },
@@ -216,7 +219,10 @@ export default {
         mainContent: {
           type: 'area',
           label: 'Main Content',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             $or: [
               { layoutType: 'asideMainThree' },
@@ -227,7 +233,10 @@ export default {
         headerContent: {
           type: 'area',
           label: 'Header Content',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'headerTwoColFooter'
           }
@@ -235,7 +244,10 @@ export default {
         leftColumnContent: {
           type: 'area',
           label: 'Left Column',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'headerTwoColFooter'
           }
@@ -243,7 +255,10 @@ export default {
         rightColumnContent: {
           type: 'area',
           label: 'Right Column',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'headerTwoColFooter'
           }
@@ -251,7 +266,10 @@ export default {
         footerContent: {
           type: 'area',
           label: 'Footer Content',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'headerTwoColFooter'
           }
@@ -259,7 +277,10 @@ export default {
         featuredContent: {
           type: 'area',
           label: 'Featured Content',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'featuredThreeGrid'
           }
@@ -267,7 +288,10 @@ export default {
         columnOneContent: {
           type: 'area',
           label: 'Column One',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'featuredThreeGrid'
           }
@@ -275,7 +299,10 @@ export default {
         columnTwoContent: {
           type: 'area',
           label: 'Column Two',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'featuredThreeGrid'
           }
@@ -283,7 +310,10 @@ export default {
         columnThreeContent: {
           type: 'area',
           label: 'Column Three',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'featuredThreeGrid'
           }
@@ -291,7 +321,10 @@ export default {
         asideLongContent: {
           type: 'area',
           label: 'Aside Content (Full Height)',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             $or: [
               { layoutType: 'twoMainAside' },
@@ -302,7 +335,10 @@ export default {
         mainTopContent: {
           type: 'area',
           label: 'Main Content - Top Section',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             $or: [
               { layoutType: 'twoMainAside' },
@@ -313,7 +349,10 @@ export default {
         mainBottomContent: {
           type: 'area',
           label: 'Main Content - Bottom Section',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             $or: [
               { layoutType: 'twoMainAside' },
@@ -324,7 +363,10 @@ export default {
         headlineContent: {
           type: 'area',
           label: 'Headline Content',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'magazineLayout'
           }
@@ -332,7 +374,10 @@ export default {
         sidebarContent: {
           type: 'area',
           label: 'Sidebar Content',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'magazineLayout'
           }
@@ -340,7 +385,10 @@ export default {
         feature1Content: {
           type: 'area',
           label: 'Feature 1',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'magazineLayout'
           }
@@ -348,7 +396,10 @@ export default {
         feature2Content: {
           type: 'area',
           label: 'Feature 2',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'magazineLayout'
           }
@@ -356,7 +407,10 @@ export default {
         feature3Content: {
           type: 'area',
           label: 'Feature 3',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'magazineLayout'
           }
@@ -364,7 +418,10 @@ export default {
         heroContent: {
           type: 'area',
           label: 'Hero Content',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'contentHub'
           }
@@ -372,7 +429,10 @@ export default {
         featuredHubContent: {
           type: 'area',
           label: 'Featured Content',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'contentHub'
           }
@@ -380,7 +440,10 @@ export default {
         quickLinksContent: {
           type: 'area',
           label: 'Quick Links',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'contentHub'
           }
@@ -388,7 +451,10 @@ export default {
         section1Content: {
           type: 'area',
           label: 'Section 1',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'contentHub'
           }
@@ -396,7 +462,10 @@ export default {
         section2Content: {
           type: 'area',
           label: 'Section 2',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'contentHub'
           }
@@ -404,7 +473,10 @@ export default {
         fullWidthContent: {
           type: 'area',
           label: 'Full Width Content',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'contentHub'
           }
@@ -412,7 +484,10 @@ export default {
         galleryFeaturedContent: {
           type: 'area',
           label: 'Featured Gallery Item',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'galleryMasonry'
           }
@@ -420,7 +495,10 @@ export default {
         gallerySide1Content: {
           type: 'area',
           label: 'Side Gallery Item 1',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'galleryMasonry'
           }
@@ -428,7 +506,10 @@ export default {
         gallerySide2Content: {
           type: 'area',
           label: 'Side Gallery Item 2',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'galleryMasonry'
           }
@@ -436,7 +517,10 @@ export default {
         galleryBottomContent: {
           type: 'area',
           label: 'Bottom Gallery Item',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'galleryMasonry'
           }
@@ -444,7 +528,10 @@ export default {
         mainMetricContent: {
           type: 'area',
           label: 'Main Metric',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'dashboardLayout'
           }
@@ -452,7 +539,10 @@ export default {
         sideMetricsContent: {
           type: 'area',
           label: 'Side Metrics',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'dashboardLayout'
           }
@@ -460,7 +550,10 @@ export default {
         chartContent: {
           type: 'area',
           label: 'Chart',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'dashboardLayout'
           }
@@ -468,7 +561,10 @@ export default {
         tableContent: {
           type: 'area',
           label: 'Table',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'dashboardLayout'
           }
@@ -476,7 +572,10 @@ export default {
         mainProductContent: {
           type: 'area',
           label: 'Main Product',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'productShowcase'
           }
@@ -484,7 +583,10 @@ export default {
         productDetailsContent: {
           type: 'area',
           label: 'Product Details',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'productShowcase'
           }
@@ -492,7 +594,10 @@ export default {
         related1Content: {
           type: 'area',
           label: 'Related Product 1',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'productShowcase'
           }
@@ -500,7 +605,10 @@ export default {
         related2Content: {
           type: 'area',
           label: 'Related Product 2',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'productShowcase'
           }
@@ -508,7 +616,10 @@ export default {
         related3Content: {
           type: 'area',
           label: 'Related Product 3',
-          options: { widgets },
+          options: {
+            expanded: true,
+            widgets
+          },
           if: {
             layoutType: 'productShowcase'
           }

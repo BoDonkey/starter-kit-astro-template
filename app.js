@@ -2,7 +2,7 @@ import apostrophe from 'apostrophe';
 
 export default apostrophe({
   root: import.meta,
-  shortName: 'starter-kit-astro-template',
+  shortName: 'starter-kit-astro-template-test',
   modules: {
     // Apostrophe module configuration
     // *******************************
@@ -14,21 +14,10 @@ export default apostrophe({
     // have a minimal configuration here to turn them on: `moduleName: {}`
     // ***********************************************************************
     // `className` options set custom CSS classes for Apostrophe core widgets.
-    '@apostrophecms/rich-text-widget': {
-    },
-    '@apostrophecms/image-widget': {
-    },
-    '@apostrophecms/video-widget': {
-    },
-    // `asset` supports the project's webpack build for client-side assets.
-    asset: {},
-    // '@apostrophecms/vite': {},
-    // '@apostrophecms/asset': {
-    //   options: {
-    //     hmr: false
-    //   }
-    // },
-    // The project's first custom page type.
+    '@apostrophecms/rich-text-widget': {},
+    '@apostrophecms/image-widget': {},
+    '@apostrophecms/video-widget': {},
+    '@apostrophecms/asset': {},
     'default-page': {},
     article: {},
     'article-page': {},
