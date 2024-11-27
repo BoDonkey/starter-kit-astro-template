@@ -329,6 +329,9 @@ export default {
               }
             }
           }
+        },
+        if: {
+          addPageSections: true
         }
       },
       // Main Content Area - Available for all layouts
