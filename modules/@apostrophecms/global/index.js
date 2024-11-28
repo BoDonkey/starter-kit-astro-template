@@ -19,11 +19,6 @@ export default {
                 { label: 'Traditional', value: 'traditional' }
               ],
               def: 'default'
-            },
-            customCss: {
-              type: 'string',
-              label: 'Custom CSS',
-              textarea: true
             }
           }
         }
