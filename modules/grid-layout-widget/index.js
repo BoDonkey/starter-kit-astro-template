@@ -10,7 +10,7 @@ export default {
   extend: '@apostrophecms/widget-type',
   options: {
     label: 'Grid Layout Widget',
-    width: 'half',
+    width: 'one-half',
     // We can remove areaWidgets from here since we'll use getWidgetGroups
     icon: 'view-grid',
     description: 'Create responsive CSS Grid-based layouts for your content.',
