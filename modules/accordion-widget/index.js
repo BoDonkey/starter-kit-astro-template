@@ -1,5 +1,5 @@
 import colorOptionsHelper from '../../lib/helpers/color-options.js';
-import { getFilteredWidgets } from '../../lib/helpers/area-widgets.js';
+import { getWidgetGroups } from '../../lib/helpers/area-widgets.js';
 
 export default {
   extend: '@apostrophecms/widget-type',
@@ -59,11 +59,9 @@ export default {
             content: {
               type: 'area',
               label: 'Content',
-              options: {
-                widgets: getFilteredWidgets({
-                  exclude: ['accordion']
-                })
-              }
+              options: getWidgetGroups({
+                exclude: ['accordion']
+              })
             }
           }
         }

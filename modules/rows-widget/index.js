@@ -1,4 +1,4 @@
-import { getFilteredWidgets } from '../../lib/helpers/area-widgets.js';
+import { getWidgetGroups } from '../../lib/helpers/area-widgets.js';
 
 export default {
   extend: '@apostrophecms/widget-type',
@@ -46,11 +46,26 @@ export default {
         type: 'select',
         label: 'Maximum Content Width',
         choices: [
-          { label: 'Full Width', value: '' },
-          { label: 'Extra Narrow (768px)', value: 'max-width-768' },
-          { label: 'Narrow (960px)', value: 'max-width-960' },
-          { label: 'Medium (1152px)', value: 'max-width-1152' },
-          { label: 'Wide (1344px)', value: 'max-width-1344' }
+          {
+            label: 'Full Width',
+            value: ''
+          },
+          {
+            label: 'Extra Narrow (768px)',
+            value: 'max-width-768'
+          },
+          {
+            label: 'Narrow (960px)',
+            value: 'max-width-960'
+          },
+          {
+            label: 'Medium (1152px)',
+            value: 'max-width-1152'
+          },
+          {
+            label: 'Wide (1344px)',
+            value: 'max-width-1344'
+          }
         ],
         def: ''
       },
@@ -59,10 +74,22 @@ export default {
         label: 'Space Between Columns',
         def: 'normal',
         choices: [
-          { label: 'None', value: 'none' },
-          { label: 'Tight', value: 'tight' },
-          { label: 'Normal', value: 'normal' },
-          { label: 'Wide', value: 'wide' }
+          {
+            label: 'None',
+            value: 'none'
+          },
+          {
+            label: 'Tight',
+            value: 'tight'
+          },
+          {
+            label: 'Normal',
+            value: 'normal'
+          },
+          {
+            label: 'Wide',
+            value: 'wide'
+          }
         ]
       },
       verticalAlignment: {
@@ -70,32 +97,50 @@ export default {
         label: 'Vertical Alignment',
         def: 'top',
         choices: [
-          { label: 'Top', value: 'top' },
-          { label: 'Center', value: 'center' },
-          { label: 'Bottom', value: 'bottom' }
+          {
+            label: 'Top',
+            value: 'top'
+          },
+          {
+            label: 'Center',
+            value: 'center'
+          },
+          {
+            label: 'Bottom',
+            value: 'bottom'
+          }
         ]
       },
       horizontalAlignment: {
         type: 'select',
         label: 'Horizontal Alignment',
         choices: [
-          { label: 'Left', value: 'left' },
-          { label: 'Center', value: 'center' },
-          { label: 'Right', value: 'right' },
-          { label: 'Space Between', value: 'space-between' }
+          {
+            label: 'Left',
+            value: 'left'
+          },
+          {
+            label: 'Center',
+            value: 'center'
+          },
+          {
+            label: 'Right',
+            value: 'right'
+          },
+          {
+            label: 'Space Between',
+            value: 'space-between'
+          }
         ],
         def: 'left'
       },
       columnOneContent: {
         type: 'area',
         label: 'First Column',
-        options: {
-          expanded: true,
-          widgets: getFilteredWidgets({
-            includeLayouts: true,
-            exclude: ['grid-layout']
-          })
-        },
+        options: getWidgetGroups({
+          includeLayouts: true,
+          exclude: [ 'grid-layout' ]
+        }),
         if: {
           $or: [
             { columnLayout: 'two-equal' },
@@ -110,13 +155,10 @@ export default {
       columnTwoContent: {
         type: 'area',
         label: 'Second Column',
-        options: {
-          expanded: true,
-          widgets: getFilteredWidgets({
-            includeLayouts: true,
-            exclude: ['grid-layout']
-          })
-        },
+        options: getWidgetGroups({
+          includeLayouts: true,
+          exclude: ['grid-layout']
+        }),
         if: {
           $or: [
             { columnLayout: 'two-equal' },
@@ -131,13 +173,10 @@ export default {
       columnThreeContent: {
         type: 'area',
         label: 'Third Column',
-        options: {
-          expanded: true,
-          widgets: getFilteredWidgets({
-            includeLayouts: true,
-            exclude: ['grid-layout']
-          })
-        },
+        options: getWidgetGroups({
+          includeLayouts: true,
+          exclude: ['grid-layout']
+        }),
         if: {
           $or: [
             { columnLayout: 'three-equal' },
@@ -149,13 +188,10 @@ export default {
       columnFourContent: {
         type: 'area',
         label: 'Fourth Column',
-        options: {
-          expanded: true,
-          widgets: getFilteredWidgets({
-            includeLayouts: true,
-            exclude: ['grid-layout']
-          })
-        },
+        options: getWidgetGroups({
+          includeLayouts: true,
+          exclude: ['grid-layout']
+        }),
         if: {
           columnLayout: 'four-equal'
         }

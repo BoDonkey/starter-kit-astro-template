@@ -1,6 +1,7 @@
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { readFileSync } from 'node:fs';
+import { getWidgetGroups } from '../../lib/helpers/area-widgets.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -10,16 +11,7 @@ export default {
   options: {
     label: 'Grid Layout Widget',
     width: 'half',
-    areaWidgets: {
-      '@apostrophecms/rich-text': {},
-      '@apostrophecms/image': {},
-      '@apostrophecms/video': {},
-      rows: {},
-      card: {},
-      hero: {},
-      accordion: {},
-      link: {}
-    },
+    // We can remove areaWidgets from here since we'll use getWidgetGroups
     icon: 'view-grid',
     description: 'Create responsive CSS Grid-based layouts for your content.',
     previewImage: 'svg'
@@ -28,7 +20,12 @@ export default {
     'view-grid': 'ViewGrid'
   },
   fields(self, options) {
-    const widgets = self.options.areaWidgets;
+    // Get base widget configuration for all areas
+    const baseAreaConfig = getWidgetGroups({
+      includeLayouts: true  // Adjust based on your needs
+    });
+
+    // Read the preview HTML
     const previewHtml = readFileSync(
       join(__dirname, 'layoutPreviews.html'),
       'utf8'
@@ -205,10 +202,7 @@ export default {
         asideContent: {
           type: 'area',
           label: 'Aside Content',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             $or: [
               { layoutType: 'asideMainThree' },
@@ -219,10 +213,7 @@ export default {
         mainContent: {
           type: 'area',
           label: 'Main Content',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             $or: [
               { layoutType: 'asideMainThree' },
@@ -233,10 +224,7 @@ export default {
         headerContent: {
           type: 'area',
           label: 'Header Content',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'headerTwoColFooter'
           }
@@ -244,10 +232,7 @@ export default {
         leftColumnContent: {
           type: 'area',
           label: 'Left Column',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'headerTwoColFooter'
           }
@@ -255,10 +240,7 @@ export default {
         rightColumnContent: {
           type: 'area',
           label: 'Right Column',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'headerTwoColFooter'
           }
@@ -266,10 +248,7 @@ export default {
         footerContent: {
           type: 'area',
           label: 'Footer Content',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'headerTwoColFooter'
           }
@@ -277,10 +256,7 @@ export default {
         featuredContent: {
           type: 'area',
           label: 'Featured Content',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'featuredThreeGrid'
           }
@@ -288,10 +264,7 @@ export default {
         columnOneContent: {
           type: 'area',
           label: 'Column One',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'featuredThreeGrid'
           }
@@ -299,10 +272,7 @@ export default {
         columnTwoContent: {
           type: 'area',
           label: 'Column Two',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'featuredThreeGrid'
           }
@@ -310,10 +280,7 @@ export default {
         columnThreeContent: {
           type: 'area',
           label: 'Column Three',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'featuredThreeGrid'
           }
@@ -321,10 +288,7 @@ export default {
         asideLongContent: {
           type: 'area',
           label: 'Aside Content (Full Height)',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             $or: [
               { layoutType: 'twoMainAside' },
@@ -335,10 +299,7 @@ export default {
         mainTopContent: {
           type: 'area',
           label: 'Main Content - Top Section',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             $or: [
               { layoutType: 'twoMainAside' },
@@ -349,10 +310,7 @@ export default {
         mainBottomContent: {
           type: 'area',
           label: 'Main Content - Bottom Section',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             $or: [
               { layoutType: 'twoMainAside' },
@@ -363,10 +321,7 @@ export default {
         headlineContent: {
           type: 'area',
           label: 'Headline Content',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'magazineLayout'
           }
@@ -374,10 +329,7 @@ export default {
         sidebarContent: {
           type: 'area',
           label: 'Sidebar Content',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'magazineLayout'
           }
@@ -385,10 +337,7 @@ export default {
         feature1Content: {
           type: 'area',
           label: 'Feature 1',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'magazineLayout'
           }
@@ -396,10 +345,7 @@ export default {
         feature2Content: {
           type: 'area',
           label: 'Feature 2',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'magazineLayout'
           }
@@ -407,10 +353,7 @@ export default {
         feature3Content: {
           type: 'area',
           label: 'Feature 3',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'magazineLayout'
           }
@@ -418,10 +361,7 @@ export default {
         heroContent: {
           type: 'area',
           label: 'Hero Content',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'contentHub'
           }
@@ -429,10 +369,7 @@ export default {
         featuredHubContent: {
           type: 'area',
           label: 'Featured Content',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'contentHub'
           }
@@ -440,10 +377,7 @@ export default {
         quickLinksContent: {
           type: 'area',
           label: 'Quick Links',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'contentHub'
           }
@@ -451,10 +385,7 @@ export default {
         section1Content: {
           type: 'area',
           label: 'Section 1',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'contentHub'
           }
@@ -462,10 +393,7 @@ export default {
         section2Content: {
           type: 'area',
           label: 'Section 2',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'contentHub'
           }
@@ -473,10 +401,7 @@ export default {
         fullWidthContent: {
           type: 'area',
           label: 'Full Width Content',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'contentHub'
           }
@@ -484,10 +409,7 @@ export default {
         galleryFeaturedContent: {
           type: 'area',
           label: 'Featured Gallery Item',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'galleryMasonry'
           }
@@ -495,10 +417,7 @@ export default {
         gallerySide1Content: {
           type: 'area',
           label: 'Side Gallery Item 1',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'galleryMasonry'
           }
@@ -506,10 +425,7 @@ export default {
         gallerySide2Content: {
           type: 'area',
           label: 'Side Gallery Item 2',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'galleryMasonry'
           }
@@ -517,10 +433,7 @@ export default {
         galleryBottomContent: {
           type: 'area',
           label: 'Bottom Gallery Item',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'galleryMasonry'
           }
@@ -528,10 +441,7 @@ export default {
         mainMetricContent: {
           type: 'area',
           label: 'Main Metric',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'dashboardLayout'
           }
@@ -539,10 +449,7 @@ export default {
         sideMetricsContent: {
           type: 'area',
           label: 'Side Metrics',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'dashboardLayout'
           }
@@ -550,10 +457,7 @@ export default {
         chartContent: {
           type: 'area',
           label: 'Chart',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'dashboardLayout'
           }
@@ -561,10 +465,7 @@ export default {
         tableContent: {
           type: 'area',
           label: 'Table',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'dashboardLayout'
           }
@@ -572,10 +473,7 @@ export default {
         mainProductContent: {
           type: 'area',
           label: 'Main Product',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'productShowcase'
           }
@@ -583,10 +481,7 @@ export default {
         productDetailsContent: {
           type: 'area',
           label: 'Product Details',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'productShowcase'
           }
@@ -594,10 +489,7 @@ export default {
         related1Content: {
           type: 'area',
           label: 'Related Product 1',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'productShowcase'
           }
@@ -605,10 +497,7 @@ export default {
         related2Content: {
           type: 'area',
           label: 'Related Product 2',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'productShowcase'
           }
@@ -616,10 +505,7 @@ export default {
         related3Content: {
           type: 'area',
           label: 'Related Product 3',
-          options: {
-            expanded: true,
-            widgets
-          },
+          options: baseAreaConfig,
           if: {
             layoutType: 'productShowcase'
           }
@@ -713,9 +599,7 @@ export default {
                     content: {
                       type: 'area',
                       label: 'Content',
-                      options: {
-                        widgets
-                      }
+                      options: baseAreaConfig
                     }
                   }
                 }

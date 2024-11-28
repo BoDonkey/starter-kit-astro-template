@@ -1,4 +1,4 @@
-import { getFilteredWidgets } from '../../lib/helpers/area-widgets.js';
+import { getWidgetGroups } from '../../lib/helpers/area-widgets.js';
 
 export default {
   extend: '@apostrophecms/page-type',
@@ -9,12 +9,9 @@ export default {
     add: {
       main: {
         type: 'area',
-        options: {
-          expanded: true,
-          widgets: getFilteredWidgets({
-            includeLayouts: true
-          })
-        }
+        options: getWidgetGroups({
+          includeLayouts: true
+        })
       }
     },
     group: {

@@ -1,4 +1,4 @@
-import { getFilteredWidgets } from '../../../lib/helpers/area-widgets.js';
+import { getWidgetGroups } from '../../../lib/helpers/area-widgets.js';
 import heroFields from '../../../lib/schema-mixins/hero-fields.js';
 import slideshowFields from '../../../lib/schema-mixins/slideshow-fields.js';
 
@@ -56,12 +56,9 @@ export default {
       main: {
         type: 'area',
         label: 'Main Content',
-        options: {
-          expanded: true,
-          widgets: getFilteredWidgets({
-            includeLayouts: true
-          })
-        }
+        options: getWidgetGroups({
+          includeLayouts: true
+        })
       }
     },
     group: {
