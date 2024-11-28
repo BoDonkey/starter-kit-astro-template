@@ -1,4 +1,4 @@
-import { getFilteredWidgets } from '../../lib/helpers/area-widgets.js';
+import { getWidgetGroups } from '../../lib/helpers/area-widgets.js';
 
 export default {
   extend: '@apostrophecms/piece-page-type',
@@ -10,22 +10,16 @@ export default {
     add: {
       masthead: {
         type: 'area',
-        options: {
-          expanded: true,
-          widgets: getFilteredWidgets({
-            includeLayouts: true
-          })
-        }
+        options: getWidgetGroups({
+          includeLayouts: true
+        })
       },
       beforeContent: {
         type: 'area',
         label: 'Before Articles Section',
-        options: {
-          expanded: true,
-          widgets: getFilteredWidgets({
-            includeLayouts: true
-          })
-        }
+        options: getWidgetGroups({
+          includeLayouts: true
+        })
       },
       sidebarContent: {
         type: 'area',
@@ -33,22 +27,16 @@ export default {
         if: {
           indexLayout: 'listAside'
         },
-        options: {
-          expanded: true,
-          widgets: getFilteredWidgets({
-            includeLayouts: true
-          })
-        }
+        options: getWidgetGroups({
+          includeLayouts: true
+        })
       },
       afterContent: {
         type: 'area',
         label: 'After Articles Section',
-        options: {
-          expanded: true,
-          widgets: getFilteredWidgets({
-            includeLayouts: true
-          })
-        }
+        options: getWidgetGroups({
+          includeLayouts: true
+        })
       },
       indexLayout: {
         type: 'select',

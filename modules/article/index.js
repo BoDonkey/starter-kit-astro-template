@@ -1,10 +1,11 @@
-import { getFilteredWidgets } from '../../lib/helpers/area-widgets.js';
+import { getWidgetGroups } from '../../lib/helpers/area-widgets.js';
 
 export default {
   extend: '@apostrophecms/piece-type',
   options: {
     label: 'Article',
-    pluralLabel: 'Articles'
+    pluralLabel: 'Articles',
+    shortcut: 'Shift+Alt+A'
   },
   fields: {
     add: {
@@ -22,12 +23,10 @@ export default {
       },
       mainContent: {
         type: 'area',
-        options: {
-          expanded: true,
-          widgets: getFilteredWidgets({
-            includeLayouts: true
-          })
-        }
+        options: getWidgetGroups({
+          includeLayouts: true
+        })
+
       },
       _author: {
         type: 'relationship',

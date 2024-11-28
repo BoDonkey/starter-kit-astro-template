@@ -15,10 +15,7 @@ export default {
         options: {
           max: 1,
           widgets: {
-            '@apostrophecms/image': {
-              aspectRatio: [1, 1],
-              size: 'full'
-            }
+            '@apostrophecms/image': {}
           }
         }
       },
