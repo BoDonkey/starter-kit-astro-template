@@ -4,7 +4,8 @@ export default {
   extend: '@apostrophecms/piece-type',
   options: {
     label: 'Article',
-    pluralLabel: 'Articles'
+    pluralLabel: 'Articles',
+    shortcut: 'Shift+Alt+A'
   },
   fields: {
     add: {
