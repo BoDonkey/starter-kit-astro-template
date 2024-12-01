@@ -14,8 +14,13 @@ export default {
         type: 'select',
         label: 'Column Layout',
         help: 'Choose how to divide your content across columns',
-        def: 'two-equal',
+        def: 'single',
         choices: [
+          {
+            label: 'Single Column',
+            help: 'Adds container around content',
+            value: 'single'
+          },
           {
             label: 'Two Equal Columns (50/50)',
             value: 'two-equal'
@@ -140,17 +145,7 @@ export default {
         options: getWidgetGroups({
           includeLayouts: true,
           exclude: [ 'grid-layout' ]
-        }),
-        if: {
-          $or: [
-            { columnLayout: 'two-equal' },
-            { columnLayout: 'three-equal' },
-            { columnLayout: 'four-equal' },
-            { columnLayout: 'one-third-two-thirds' },
-            { columnLayout: 'two-thirds-one-third' },
-            { columnLayout: 'quarter-half-quarter' }
-          ]
-        }
+        })
       },
       columnTwoContent: {
         type: 'area',
