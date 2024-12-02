@@ -13,12 +13,10 @@ export default {
               type: 'select',
               label: 'Site Theme',
               choices: [
-                { label: 'Default', value: 'default' },
-                { label: 'Bold', value: 'bold' },
-                { label: 'Demure', value: 'demure' },
-                { label: 'Traditional', value: 'traditional' }
+                { label: 'Light', value: 'light' },
+                { label: 'Dark', value: 'dark' }
               ],
-              def: 'default'
+              def: 'light'
             }
           }
         }
@@ -184,7 +182,7 @@ export default {
               label: 'Header Background Color',
               help: 'Choose the background color for the navigation bar',
               choices: colorOptionsHelper.getColorOptions(),
-              def: 'white'
+              def: 'transparent'
             },
             headerBackgroundModifier: {
               type: 'select',
