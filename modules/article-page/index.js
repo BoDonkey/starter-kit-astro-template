@@ -4,7 +4,12 @@ export default {
   extend: '@apostrophecms/piece-page-type',
   options: {
     label: 'Article Page',
-    perPage: 12
+    perPage: 5,
+    piecesFilters: [
+      {
+        name: 'category'
+      }
+    ]
   },
   fields: {
     add: {
@@ -41,7 +46,7 @@ export default {
       indexLayout: {
         type: 'select',
         label: 'Index Page Layout',
-        def: 'standard',
+        def: 'heroGrid',
         choices: [
           {
             label: 'Hero Grid',
@@ -63,7 +68,7 @@ export default {
       showLayout: {
         type: 'select',
         label: 'Article Display Layout',
-        def: 'standard',
+        def: 'fullWidth',
         choices: [
           {
             label: 'Full Width',

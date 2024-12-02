@@ -9,6 +9,29 @@ export default {
   },
   fields: {
     add: {
+      category: {
+        type: 'select',
+        label: 'Category',
+        help: 'Choose a category for this article',
+        choices: [
+          {
+            label: 'News',
+            value: 'news'
+          },
+          {
+            label: 'Opinion',
+            value: 'opinion'
+          },
+          {
+            label: 'Feature',
+            value: 'feature'
+          },
+          {
+            label: 'Review',
+            value: 'review'
+          }
+        ]
+      },
       _heroImage: {
         type: 'relationship',
         label: 'Hero Image',
@@ -31,7 +54,8 @@ export default {
       _author: {
         type: 'relationship',
         label: 'Author',
-        withType: 'author'
+        withType: 'author',
+        withRelationships: [ '_articles' ]
       },
       publishDate: {
         lable: 'Publication Date',
@@ -48,7 +72,7 @@ export default {
     group: {
       basics: {
         label: 'Basic Info',
-        fields: ['_author', 'publishDate', '_related']
+        fields: ['_author', 'category', 'publishDate', '_related']
       },
       content: {
         label: 'Content',

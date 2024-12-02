@@ -35,6 +35,7 @@ export default {
         type: 'array',
         label: 'Social Media Links',
         titleField: 'platform',
+        inline: true,
         fields: {
           add: {
             platform: {
@@ -55,7 +56,6 @@ export default {
       },
       _articles: {
         type: 'relationshipReverse',
-        label: 'Articles',
         withType: 'article',
         reverseOf: '_author'
       }
