@@ -1,7 +1,5 @@
 {# Automatically extends the right outer layout and also handles AJAX siutations #}
-{% extends data.outerLayout %}
 
-{% block main %}
   <style>
     .info-content {
       font-family: Arial, sans-serif;
@@ -131,4 +129,3 @@
     // Set up interval for checking, but store the interval ID
     checkInterval = setInterval(checkAstroConnection, 5000);
   </script>
-{% endblock %}
