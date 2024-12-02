@@ -6,12 +6,12 @@ export default {
     add: {
       themeGroup: {
         type: 'object',
-        label: 'Theme Settings',
+        label: 'Color Settings',
         fields: {
           add: {
             theme: {
               type: 'select',
-              label: 'Site Theme',
+              label: 'Theme',
               choices: [
                 { label: 'Light', value: 'light' },
                 { label: 'Dark', value: 'dark' }
@@ -23,7 +23,7 @@ export default {
       },
       brandingGroup: {
         type: 'object',
-        label: 'Site Branding',
+        label: 'Brand Settings',
         fields: {
           add: {
             siteTitle: {
@@ -120,9 +120,9 @@ export default {
               label: 'Header Position',
               help: 'Choose how the header behaves when scrolling',
               choices: [
-                { label: 'Floating - Always visible', value: 'fixed' },
-                { label: 'Floating - Fade on scroll', value: 'fixed-fade' },
-                { label: 'Static - Scrolls with content', value: 'static' }
+                { label: 'Floating - Always Visible', value: 'fixed' },
+                { label: 'Floating - Fade on Scroll', value: 'fixed-fade' },
+                { label: 'Static - Scrolls With Content', value: 'static' }
               ],
               def: 'fixed'
             },
@@ -414,13 +414,9 @@ export default {
       }
     },
     group: {
-      theme: {
-        label: 'Theme & Styling',
-        fields: ['themeGroup']
-      },
       branding: {
         label: 'Branding',
-        fields: ['brandingGroup']
+        fields: ['brandingGroup', 'themeGroup']
       },
       header: {
         label: 'Header',
