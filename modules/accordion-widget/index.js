@@ -25,15 +25,16 @@ export default {
         label: 'Allow Multiple Items Open',
         def: false
       },
-      defaultOpenIndex: {
+      openIndex: {
         type: 'integer',
-        label: 'Default Open Item (0-based, -1 for none)',
+        label: 'Default Open Item (-1 for none, 1 for first item, etc...)',
         def: -1
       },
       items: {
         type: 'array',
         label: 'Items',
         titleField: 'header',
+        inline: true,
         fields: {
           add: {
             header: {

@@ -11,7 +11,6 @@ export default {
   options: {
     label: 'Grid Layout Widget',
     width: 'one-half',
-    // We can remove areaWidgets from here since we'll use getWidgetGroups
     icon: 'view-grid',
     description: 'Create responsive CSS Grid-based layouts for your content.',
     previewImage: 'svg'
@@ -19,10 +18,11 @@ export default {
   icons: {
     'view-grid': 'ViewGrid'
   },
+  // We need to pass fields as a function to allow for the preview HTML
   fields(self, options) {
     // Get base widget configuration for all areas
     const baseAreaConfig = getWidgetGroups({
-      includeLayouts: true  // Adjust based on your needs
+      includeLayouts: true
     });
 
     // Read the preview HTML
@@ -574,7 +574,6 @@ export default {
                       label: 'Column Span',
                       def: 1
                     },
-                    // New responsive column spans
                     tabletColSpan: {
                       type: 'integer',
                       label: 'Column Span (Tablet)',
