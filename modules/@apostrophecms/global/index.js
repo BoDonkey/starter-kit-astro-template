@@ -135,6 +135,19 @@ export default {
               ],
               def: 'end'
             },
+            headerBackgroundColor: {
+              type: 'select',
+              label: 'Header Background Color',
+              help: 'Choose the background color for the navigation bar',
+              choices: colorOptionsHelper.getColorOptions(),
+              def: 'transparent'
+            },
+            headerBackgroundModifier: {
+              type: 'select',
+              label: 'Header Background Shade',
+              choices: colorOptionsHelper.getColorModifiers(),
+              def: ''
+            },
             transparency: {
               type: 'range',
               label: 'Header Transparency',
@@ -150,21 +163,6 @@ export default {
                 ]
               }
             },
-            showThemeSwitcher: {
-              type: 'boolean',
-              label: 'Show Theme Switcher in Navbar',
-              def: true
-            },
-            switcherIconColor: {
-              type: 'select',
-              label: 'Switcher Icon Color',
-              choices: colorOptionsHelper.getColorOptions().filter(color =>
-                color.value !== 'transparent'
-              ),
-              if: {
-                showThemeSwitcher: true
-              }
-            },
             spacing: {
               type: 'select',
               label: 'Header Spacing',
@@ -176,19 +174,6 @@ export default {
                 { label: 'Large', value: 'spacing-lg' }
               ],
               def: 'spacing-md'
-            },
-            headerBackgroundColor: {
-              type: 'select',
-              label: 'Header Background Color',
-              help: 'Choose the background color for the navigation bar',
-              choices: colorOptionsHelper.getColorOptions(),
-              def: 'transparent'
-            },
-            headerBackgroundModifier: {
-              type: 'select',
-              label: 'Header Background Shade',
-              choices: colorOptionsHelper.getColorModifiers(),
-              def: ''
             },
             headerTextColor: {
               type: 'select',
