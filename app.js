@@ -13,7 +13,10 @@ export default apostrophe({
     // Any modules that are not present by default in Apostrophe must at least
     // have a minimal configuration here to turn them on: `moduleName: {}`
 
-    // ***********************************************************************
+    // *********************************
+    // Add Vite build
+    '@apostrophecms/vite': {},
+
     // `className` options set custom CSS classes for Apostrophe core widgets.
     '@apostrophecms/rich-text-widget': {},
     '@apostrophecms/image-widget': {},
