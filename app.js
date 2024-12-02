@@ -19,6 +19,8 @@ export default apostrophe({
     '@apostrophecms/image-widget': {},
     '@apostrophecms/video-widget': {},
     '@apostrophecms/asset': {},
+
+    // pieces
     article: {},
     author: {},
 
