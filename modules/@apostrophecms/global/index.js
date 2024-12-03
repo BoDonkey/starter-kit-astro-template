@@ -142,12 +142,6 @@ export default {
               choices: colorOptionsHelper.getColorOptions(),
               def: 'transparent'
             },
-            headerBackgroundModifier: {
-              type: 'select',
-              label: 'Header Background Shade',
-              choices: colorOptionsHelper.getColorModifiers(),
-              def: ''
-            },
             transparency: {
               type: 'range',
               label: 'Header Transparency',
@@ -192,12 +186,6 @@ export default {
                 color.value !== 'transparent'
               )
             },
-            headerActiveModifier: {
-              type: 'select',
-              label: 'Active Link Shade',
-              choices: colorOptionsHelper.getColorModifiers(),
-              def: ''
-            },
             headerHoverColor: {
               type: 'select',
               label: 'Link Hover Color',
@@ -205,12 +193,6 @@ export default {
               choices: colorOptionsHelper.getColorOptions().filter(color =>
                 color.value !== 'transparent'
               )
-            },
-            headerHoverModifier: {
-              type: 'select',
-              label: 'Link Hover Shade',
-              choices: colorOptionsHelper.getColorModifiers(),
-              def: ''
             },
             dropdownTextColor: {
               type: 'select',
